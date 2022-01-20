@@ -1,0 +1,11 @@
+<h1 id="screensize">
+???
+</h1>
+<script>
+window.addEventListener("load", function(){
+    document.getElementById("screensize").innerHTML = window.innerWidth + "x" + window.innerHeight;
+});
+window.addEventListener('resize', function(){
+    document.getElementById("screensize").innerHTML = window.innerWidth + "x" + window.innerHeight;
+});
+</script>
