@@ -22,6 +22,13 @@ PageIndex class >> bridgeClientClass [
 ]
 
 { #category : 'accessing' }
+PageIndex class >> exporterClass [
+
+	<pharoJsSkip>
+	^ PjFileExporterWithIndexHtml
+]
+
+{ #category : 'accessing' }
 PageIndex class >> generateHtmlUsing: html [
 
 	<pharoJsSkip>
