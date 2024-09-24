@@ -154,7 +154,7 @@ PageIndex class >> renderGeoHashViewer: html [
 PageIndex class >> renderGeoHashViewerAuto: html [
 
 	<pharoJsSkip>
-	<renderKataOrder: 4>
+	<renderKataOrder: 5>
 	self
 		cardWith: [
 			html div
