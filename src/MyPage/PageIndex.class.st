@@ -3,10 +3,26 @@ Class {
 	#superclass : 'PjFileBasedWebApp',
 	#traits : 'StaticComponentHolder',
 	#classTraits : 'StaticComponentHolder classTrait',
+	#classInstVars : [
+		'staticComponents',
+		'translator'
+	],
 	#category : 'MyPage-Core',
 	#package : 'MyPage',
 	#tag : 'Core'
 }
+
+{ #category : 'accessing' }
+PageIndex class >> _translator [
+
+	<pharoJsSkip>
+	^ translator ifNil: [ translator := I18NTranslator forLanguage: 'EN' ]
+]
+
+{ #category : 'accessing' }
+PageIndex class >> appClasses [
+	^ super appClasses , { I18NTranslator }
+]
 
 { #category : 'accessing' }
 PageIndex class >> bridgeClass [
@@ -19,6 +35,17 @@ PageIndex class >> bridgeClientClass [
 	<pharoJsSkip>
 	
 	^ PjZnHostedBrowserBridgeClient
+]
+
+{ #category : 'accessing' }
+PageIndex class >> cardWith: withBlock on: html [
+
+	html div
+		class: 'col-2';
+		with: [
+			html div
+				class: 'card ';
+				with: withBlock ]
 ]
 
 { #category : 'accessing' }
@@ -35,11 +62,12 @@ PageIndex class >> generateHtmlUsing: html [
 	html div
 		class: 'container-md';
 		with: [ :cont |
-			html paragraph with: 'Hello world, my name is'.
+			html paragraph with:
+					(self translator translationFor: #helloMyNameIs).
 			html heading
 				level: 1;
-				with: 'Max Mattone'.
-			html paragraph with: 'Program, Sail, Learn, Repeat' ].
+				with: (self translator translationFor: #name).
+			html paragraph with: (self translator translationFor: #intro) ].
 	html section
 		class: 'container-md';
 		with: [ :cont |
@@ -51,33 +79,17 @@ PageIndex class >> generateHtmlUsing: html [
 						with: [
 							html heading
 								level: 2;
-								with: 'Code kata' ].
+								with: (self translator translationFor: #kataHeader) ].
 					html div
-						class: 'card-body';
-						with: [
-							html unorderedList
-								class: 'list-group';
-								with: [
-									self
-										listItemUrl: 'BrowserDetails'
-										with: 'Show browser details'
-										on: html.
-									self
-										listItemUrl: 'UBNameGenerator'
-										with: 'Generator of ubuntu-like release names'
-										on: html.
-									self
-										listItemUrl: 'PJSIPGeolocationWebApp'
-										with: 'Where is my IP?'
-										on: html.
-									self
-										listItemUrl: 'WCGeohashWebApp'
-										with: 'Geohash Viewer'
-										on: html.
-									self
-										listItemUrl: 'WCGeohashWebApp/auto'
-										with: 'Geohash Automatic Cover'
-										on: html ] ] ] ]
+						class: 'card-body row';
+						attributeAt: 'data-masonry' put: '{"percentPosition": true }';
+						with: [ self renderKataOn: html ] ] ]
+]
+
+{ #category : 'accessing' }
+PageIndex class >> initialize [ 
+	<pharoJsSkip>
+	translator := nil.
 ]
 
 { #category : 'accessing' }
@@ -92,10 +104,151 @@ PageIndex class >> listItemUrl: url with: blockOrString on: html [
 ]
 
 { #category : 'accessing' }
+PageIndex class >> renderBrowserDetailsOn: html [
+
+	<pharoJsSkip>
+	<renderKataOrder: 1>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: 'Browser details' ].
+			html image
+				class: 'card-img';
+				url: '	https://cdn-icons-png.freepik.com/256/12591/12591754.png'.
+
+			html anchor
+				class: 'stretched-link';
+				url: 'BrowserDetails' ]
+		on: html
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderGeoHashViewer: html [
+	"https://cdn-icons-png.freepik.com/256/717/717498.png"
+
+	<pharoJsSkip>
+	<renderKataOrder: 4>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: 'Geohash Viewer' ].
+			html image
+				class: 'card-img';
+				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
+
+			html anchor
+				class: 'stretched-link';
+				url: 'WCGeohashWebApp' ]
+		on: html
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderGeoHashViewerAuto: html [
+
+	<pharoJsSkip>
+	<renderKataOrder: 4>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: 'Geohash Automatic Cover' ].
+			html image
+				class: 'card-img';
+				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
+
+			html anchor
+				class: 'stretched-link';
+				url: 'WCGeohashWebApp/auto' ]
+		on: html
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderKataOn: html [
+
+	<pharoJsSkip>
+	((Pragma allNamed: #renderKataOrder: in: self class) sort: [ :a :b |
+		 (a argumentAt: 1) < (b argumentAt: 1) ]) do: [ :aPragma |
+		aPragma method valueWithReceiver: self arguments: { html } ]
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderUBNameGeneratorOn: html [
+
+	<pharoJsSkip>
+	<renderKataOrder: 2>
+	self
+		cardWith: ["https://cdn-icons-png.freepik.com/256/16060/16060923.png"
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: 'Ubuntu-like release names' ].
+					html image
+				class: 'card-img';
+				url: 'https://cdn-icons-png.freepik.com/256/5969/5969193.png'.
+		
+					html anchor
+						class: 'stretched-link';
+						url: 'UBNameGenerator'  ]
+		on: html
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderWhereIsMyIp: html [
+	"https://cdn-icons-png.freepik.com/256/1692/1692037.png"
+
+	<pharoJsSkip>
+	<renderKataOrder: 3>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: 'Where is my IP?' ].
+			html image
+				class: 'card-img';
+				url: 'https://cdn-icons-png.freepik.com/256/1692/1692037.png'.
+
+			html anchor
+				class: 'stretched-link';
+				url: 'PJSIPGeolocationWebApp' ]
+		on: html
+]
+
+{ #category : 'accessing' }
 PageIndex class >> staticComponentsSerialized [
 
 	<jsLiteralGenerator>
 	^ self _staticComponents asPhxJsonString
+]
+
+{ #category : 'accessing' }
+PageIndex class >> translator [
+
+	^ translator ifNil: [ 
+		  translator := PhxJsonReader readFromString:
+			                      self translatorSerialized ]
+]
+
+{ #category : 'accessing' }
+PageIndex class >> translatorSerialized [
+
+	<jsLiteralGenerator>
+	^ self _translator asPhxJsonString
 ]
 
 { #category : 'accessing' }
@@ -110,5 +263,7 @@ PageIndex class >> updateHtmlRoot: root [
 	root stylesheet url:
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'.
 	root javascript url:
-		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
+		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'.
+	root javascript url:
+		'https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js'
 ]
