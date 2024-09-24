@@ -103,7 +103,7 @@ PageIndex class >> listItemUrl: url with: blockOrString on: html [
 				with: blockOrString ]
 ]
 
-{ #category : 'accessing' }
+{ #category : 'cards' }
 PageIndex class >> renderBrowserDetailsOn: html [
 
 	<pharoJsSkip>
@@ -115,7 +115,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 				with: [
 					html heading
 						level: 3;
-						with: 'Browser details' ].
+						with: (self translator translationFor: #browserDetails) ].
 			html image
 				class: 'card-img';
 				url: '	https://cdn-icons-png.freepik.com/256/12591/12591754.png'.
@@ -126,7 +126,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 		on: html
 ]
 
-{ #category : 'accessing' }
+{ #category : 'cards' }
 PageIndex class >> renderGeoHashViewer: html [
 	"https://cdn-icons-png.freepik.com/256/717/717498.png"
 
@@ -139,7 +139,7 @@ PageIndex class >> renderGeoHashViewer: html [
 				with: [
 					html heading
 						level: 3;
-						with: 'Geohash Viewer' ].
+						with: (self translator translationFor: #geohashViewer) ].
 			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
@@ -150,7 +150,7 @@ PageIndex class >> renderGeoHashViewer: html [
 		on: html
 ]
 
-{ #category : 'accessing' }
+{ #category : 'cards' }
 PageIndex class >> renderGeoHashViewerAuto: html [
 
 	<pharoJsSkip>
@@ -162,7 +162,7 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 				with: [
 					html heading
 						level: 3;
-						with: 'Geohash Automatic Cover' ].
+						with:  (self translator translationFor: #geohashViewerAuto)].
 			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
@@ -182,7 +182,7 @@ PageIndex class >> renderKataOn: html [
 		aPragma method valueWithReceiver: self arguments: { html } ]
 ]
 
-{ #category : 'accessing' }
+{ #category : 'cards' }
 PageIndex class >> renderUBNameGeneratorOn: html [
 
 	<pharoJsSkip>
@@ -194,7 +194,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 				with: [
 					html heading
 						level: 3;
-						with: 'Ubuntu-like release names' ].
+						with:  (self translator translationFor: #ubuntuNameGenerator)].
 					html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/5969/5969193.png'.
@@ -205,7 +205,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 		on: html
 ]
 
-{ #category : 'accessing' }
+{ #category : 'cards' }
 PageIndex class >> renderWhereIsMyIp: html [
 	"https://cdn-icons-png.freepik.com/256/1692/1692037.png"
 
@@ -218,7 +218,7 @@ PageIndex class >> renderWhereIsMyIp: html [
 				with: [
 					html heading
 						level: 3;
-						with: 'Where is my IP?' ].
+						with: (self translator translationFor: #whereIsMyIp)].
 			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/1692/1692037.png'.
