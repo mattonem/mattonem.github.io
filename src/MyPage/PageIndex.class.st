@@ -237,6 +237,12 @@ PageIndex class >> staticComponentsSerialized [
 ]
 
 { #category : 'accessing' }
+PageIndex class >> title [
+	<pharoJsSkip>
+	^ self translator translationFor: #title
+]
+
+{ #category : 'accessing' }
 PageIndex class >> translator [
 
 	^ translator ifNil: [ 

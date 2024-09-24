@@ -15,6 +15,7 @@ PageIndexI18N class >> enTranslations [
 	I18NTranslator addTranslator: translator.
 	self noTranslationRequired: translator.
 	translator translationMap
+		at: #title put: 'My Page';
 		at: #helloMyNameIs put: 'Hello world. My name is';
 		at: #intro put: 'Program, Sail, Learn, Repeat';
 		at: #kataHeader put: 'Code Kata';
