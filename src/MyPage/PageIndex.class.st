@@ -41,7 +41,7 @@ PageIndex class >> bridgeClientClass [
 PageIndex class >> cardWith: withBlock on: html [
 
 	html div
-		class: 'col-2';
+		class: 'col-sm-6 col-xl-3  col-lg-4 mb-5';
 		with: [
 			html div
 				class: 'card ';
