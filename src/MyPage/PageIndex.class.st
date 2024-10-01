@@ -129,7 +129,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 
 			html anchor
 				class: 'stretched-link';
-				url: 'BrowserDetails' ]
+				url: '/BrowserDetails' ]
 		on: html
 ]
 
@@ -153,7 +153,7 @@ PageIndex class >> renderGeoHashViewer: html [
 
 			html anchor
 				class: 'stretched-link';
-				url: 'WCGeohashWebApp' ]
+				url: '/WCGeohashWebApp' ]
 		on: html
 ]
 
@@ -169,14 +169,14 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 				with: [
 					html heading
 						level: 3;
-						with:  (self translator translationFor: #geohashViewerAuto)].
+						with: (self translator translationFor: #geohashViewerAuto) ].
 			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
 
 			html anchor
 				class: 'stretched-link';
-				url: 'WCGeohashWebApp/auto' ]
+				url: '/WCGeohashWebApp/auto' ]
 		on: html
 ]
 
@@ -195,20 +195,20 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 	<pharoJsSkip>
 	<renderKataOrder: 2>
 	self
-		cardWith: ["https://cdn-icons-png.freepik.com/256/16060/16060923.png"
+		cardWith: [ "https://cdn-icons-png.freepik.com/256/16060/16060923.png"
 			html div
 				class: 'card-header';
 				with: [
 					html heading
 						level: 3;
-						with:  (self translator translationFor: #ubuntuNameGenerator)].
-					html image
+						with: (self translator translationFor: #ubuntuNameGenerator) ].
+			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/5969/5969193.png'.
-		
-					html anchor
-						class: 'stretched-link';
-						url: 'UBNameGenerator'  ]
+
+			html anchor
+				class: 'stretched-link';
+				url: '/UBNameGenerator' ]
 		on: html
 ]
 
@@ -225,14 +225,14 @@ PageIndex class >> renderWhereIsMyIp: html [
 				with: [
 					html heading
 						level: 3;
-						with: (self translator translationFor: #whereIsMyIp)].
+						with: (self translator translationFor: #whereIsMyIp) ].
 			html image
 				class: 'card-img';
 				url: 'https://cdn-icons-png.freepik.com/256/1692/1692037.png'.
 
 			html anchor
 				class: 'stretched-link';
-				url: 'PJSIPGeolocationWebApp' ]
+				url: '/PJSIPGeolocationWebApp' ]
 		on: html
 ]
 
