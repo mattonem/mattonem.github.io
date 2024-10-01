@@ -20,6 +20,13 @@ PageIndex class >> _translator [
 ]
 
 { #category : 'accessing' }
+PageIndex class >> _translator: aTranslator [
+
+	<pharoJsSkip>
+	translator := aTranslator
+]
+
+{ #category : 'accessing' }
 PageIndex class >> appClasses [
 	^ super appClasses , { I18NTranslator }
 ]
