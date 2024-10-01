@@ -9,6 +9,6 @@ newRepository register.
 PageIndex appFolder: './build' asFileLocatorOrReference ensureCreateDirectory.
 PageIndex exportApp.
 
-PageIndex _translator: I18NTranslator forLanguage: 'FR'
+PageIndex _translator: (I18NTranslator forLanguage: 'FR').
 PageIndex appFolder: './build/fr/' asFileLocatorOrReference ensureCreateDirectory.
 PageIndex exportApp.
