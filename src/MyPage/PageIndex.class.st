@@ -134,6 +134,29 @@ PageIndex class >> renderBrowserDetailsOn: html [
 ]
 
 { #category : 'cards' }
+PageIndex class >> renderDiamondSquare: html [
+
+	<pharoJsSkip>
+	<renderKataOrder: 7>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #diamondSquare) ].
+			html image
+				class: 'card-img';
+				url: 'https://cdn-icons-png.freepik.com/256/5342/5342107.png'.
+
+			html anchor
+				class: 'stretched-link';
+				url: '/Kata-DiamondSquareAlgo/' ]
+		on: html
+]
+
+{ #category : 'cards' }
 PageIndex class >> renderGeoHashViewer: html [
 	"https://cdn-icons-png.freepik.com/256/717/717498.png"
 

@@ -23,7 +23,8 @@ PageIndexI18N class >> enTranslations [
 		at: #geohashViewerAuto put: 'Geohash Automatic Cover';
 		at: #geohashViewer put: 'Geohash Viewer';
 		at: #ubuntuNameGenerator put: 'Ubuntu-like release names';
-		at: #whereIsMyIp put: 'Where is my IP?'
+		at: #whereIsMyIp put: 'Where is my IP?';
+		at: #diamondSquare put: 'Diamond-square algorithm'
 ]
 
 { #category : 'class initialization' }
@@ -43,7 +44,8 @@ PageIndexI18N class >> frTranslations [
 		at: #geohashViewerAuto put: 'Geohash Automatic Cover';
 		at: #geohashViewer put: 'Geohash Viewer';
 		at: #ubuntuNameGenerator put: 'Générateur nom de vesion Ubuntu';
-		at: #whereIsMyIp put: 'Où est mon IP?'
+		at: #whereIsMyIp put: 'Où est mon IP?';
+			at: #diamondSquare put: 'Algorithme Diamant-Carré Kata'
 ]
 
 { #category : 'class initialization' }
