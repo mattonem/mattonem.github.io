@@ -48,7 +48,7 @@ PageIndex class >> bridgeClientClass [
 PageIndex class >> cardWith: withBlock on: html [
 
 	html div
-		class: 'col-sm-6 col-xl-3  col-lg-4 mb-5';
+		class: 'col-xl-3  col-lg-4 mb-5 col-sm-6';
 		with: [
 			html div
 				class: 'card ';
@@ -88,9 +88,13 @@ PageIndex class >> generateHtmlUsing: html [
 								level: 2;
 								with: (self translator translationFor: #kataHeader) ].
 					html div
-						class: 'card-body row';
-						attributeAt: 'data-masonry' put: '{"percentPosition": true }';
-						with: [ self renderKataOn: html ] ] ]
+						class: 'card-body';
+						with: [
+							html div
+								class: 'row';
+								attributeAt: 'data-masonry'
+								put: '{&quot;percentPosition&quot;: true }';
+								with: [ self renderKataOn: html ] ] ] ]
 ]
 
 { #category : 'accessing' }
