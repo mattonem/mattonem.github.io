@@ -305,7 +305,7 @@ PageIndex class >> updateHtmlRoot: root [
 	root javascript url:
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'.
 	root javascript url:
-		'https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js'.
+		'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'.
 	root link
 		relationship: 'icon';
 		type: WCMimeType imageXIcon;
