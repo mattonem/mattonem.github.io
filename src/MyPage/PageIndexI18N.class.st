@@ -25,6 +25,7 @@ PageIndexI18N class >> enTranslations [
 		at: #ubuntuNameGenerator put: 'Ubuntu-like release names';
 		at: #whereIsMyIp put: 'Where is my IP?';
 		at: #diamondSquare put: 'Diamond-square algorithm';
+		at: #projectHeader put: 'Projects';
 		at: #gamebox put: 'Gamebox';
 		at: #gameboxDesc put: 'An interactive html canvas framework'
 ]
@@ -47,7 +48,10 @@ PageIndexI18N class >> frTranslations [
 		at: #geohashViewer put: 'Geohash Viewer';
 		at: #ubuntuNameGenerator put: 'Générateur nom de vesion Ubuntu';
 		at: #whereIsMyIp put: 'Où est mon IP?';
-			at: #diamondSquare put: 'Algorithme Diamant-Carré Kata'
+		at: #diamondSquare put: 'Algorithme Diamant-Carré Kata';
+		at: #projectHeader put: 'Projets';
+		at: #gamebox put: 'Gamebox';
+		at: #gameboxDesc put: 'Un framework interactif pour canvas html'
 ]
 
 { #category : 'class initialization' }
