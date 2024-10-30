@@ -94,7 +94,24 @@ PageIndex class >> generateHtmlUsing: html [
 								class: 'row';
 								attributeAt: 'data-masonry'
 								put: '{&quot;percentPosition&quot;: true }';
-								with: [ self renderKataOn: html ] ] ] ]
+								with: [ self renderKataOn: html ] ] ].
+						html div
+				class: 'card';
+				with: [
+					html div
+						class: 'card-header';
+						with: [
+							html heading
+								level: 2;
+								with: (self translator translationFor: #projectHeader) ].
+					html div
+						class: 'card-body';
+						with: [
+							html div
+								class: 'row';
+								attributeAt: 'data-masonry'
+								put: '{&quot;percentPosition&quot;: true }';
+								with: [ self renderProjectOn: html ] ] ]  ]
 ]
 
 { #category : 'accessing' }
@@ -161,6 +178,32 @@ PageIndex class >> renderDiamondSquare: html [
 ]
 
 { #category : 'cards' }
+PageIndex class >> renderGameboxOn: html [
+
+	<pharoJsSkip>
+	<renderProjectOrder: 1>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #gamebox) ].
+			html image
+				class: 'card-img';
+				url: '	https://www.svgrepo.com/show/183134/canvas-paint.svg'.
+			html div
+				class: 'card-body';
+				with: [ html paragraph with: (self translator translationFor: #gameboxDesc) ].
+
+			html anchor
+				class: 'stretched-link';
+				url: '/WCGamebox' ]
+		on: html
+]
+
+{ #category : 'cards' }
 PageIndex class >> renderGeoHashViewer: html [
 	"https://cdn-icons-png.freepik.com/256/717/717498.png"
 
@@ -212,6 +255,15 @@ PageIndex class >> renderKataOn: html [
 
 	<pharoJsSkip>
 	((Pragma allNamed: #renderKataOrder: in: self class) sort: [ :a :b |
+		 (a argumentAt: 1) < (b argumentAt: 1) ]) do: [ :aPragma |
+		aPragma method valueWithReceiver: self arguments: { html } ]
+]
+
+{ #category : 'accessing' }
+PageIndex class >> renderProjectOn: html [
+
+	<pharoJsSkip>
+	((Pragma allNamed: #renderProjectOrder: in: self class) sort: [ :a :b |
 		 (a argumentAt: 1) < (b argumentAt: 1) ]) do: [ :aPragma |
 		aPragma method valueWithReceiver: self arguments: { html } ]
 ]

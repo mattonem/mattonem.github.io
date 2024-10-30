@@ -24,7 +24,9 @@ PageIndexI18N class >> enTranslations [
 		at: #geohashViewer put: 'Geohash Viewer';
 		at: #ubuntuNameGenerator put: 'Ubuntu-like release names';
 		at: #whereIsMyIp put: 'Where is my IP?';
-		at: #diamondSquare put: 'Diamond-square algorithm'
+		at: #diamondSquare put: 'Diamond-square algorithm';
+		at: #gamebox put: 'Gamebox';
+		at: #gameboxDesc put: 'An interactive html canvas framework'
 ]
 
 { #category : 'class initialization' }
