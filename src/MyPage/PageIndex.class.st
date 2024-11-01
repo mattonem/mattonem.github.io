@@ -178,6 +178,29 @@ PageIndex class >> renderDiamondSquare: html [
 ]
 
 { #category : 'cards' }
+PageIndex class >> renderGameOfLife: html [
+
+	<pharoJsSkip>
+	<renderKataOrder: 8>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #gameOfLife) ].
+			html image
+				class: 'card-img';
+				url: 'https://www.svgrepo.com/show/516573/game-of-life.svg'.
+
+			html anchor
+				class: 'stretched-link';
+				url: '/Kata-GameOfLife/' ]
+		on: html
+]
+
+{ #category : 'cards' }
 PageIndex class >> renderGameboxOn: html [
 
 	<pharoJsSkip>
