@@ -67,51 +67,66 @@ PageIndex class >> generateHtmlUsing: html [
 
 	<pharoJsSkip>
 	html div
-		class: 'container-md';
-		with: [ :cont |
-			html paragraph with:
-					(self translator translationFor: #helloMyNameIs).
-			html heading
-				level: 1;
-				with: (self translator translationFor: #name).
-			html paragraph with: (self translator translationFor: #intro) ].
-	html section
-		class: 'container-md';
-		with: [ :cont |
+		class: 'container';
+		with: [
 			html div
-				class: 'card';
-				with: [
+				class: 'row';
+				with: [ :cont |
 					html div
-						class: 'card-header';
+						class: 'col';
 						with: [
+							html paragraph with:
+									(self translator translationFor: #helloMyNameIs).
 							html heading
-								level: 2;
-								with: (self translator translationFor: #kataHeader) ].
+								level: 1;
+								with: (self translator translationFor: #name).
+							html paragraph with: (self translator translationFor: #intro) ] ].
+			html section
+				class: 'row';
+				with: [ :cont |
 					html div
-						class: 'card-body';
+						class: 'col';
 						with: [
 							html div
-								class: 'row';
-								attributeAt: 'data-masonry'
-								put: '{&quot;percentPosition&quot;: true }';
-								with: [ self renderKataOn: html ] ] ].
-						html div
-				class: 'card';
-				with: [
+								class: 'card';
+								with: [
+									html div
+										class: 'card-header';
+										with: [
+											html heading
+												level: 2;
+												with: (self translator translationFor: #kataHeader) ].
+									html div
+										class: 'card-body';
+										with: [
+											html div
+												class: 'row';
+												attributeAt: 'data-masonry'
+												put: '{&quot;percentPosition&quot;: true }';
+												with: [ self renderKataOn: html ] ] ] ] ].
+			html section
+				class: 'row';
+				with: [ :cont |
 					html div
-						class: 'card-header';
-						with: [
-							html heading
-								level: 2;
-								with: (self translator translationFor: #projectHeader) ].
-					html div
-						class: 'card-body';
+						class: 'col';
 						with: [
 							html div
-								class: 'row';
-								attributeAt: 'data-masonry'
-								put: '{&quot;percentPosition&quot;: true }';
-								with: [ self renderProjectOn: html ] ] ]  ]
+								class: 'card';
+								with: [
+									html div
+										class: 'card-header';
+										with: [
+											html heading
+												level: 2;
+												with: (self translator translationFor: #projectHeader) ].
+									html div
+										class: 'card-body';
+										with: [
+											html div
+												class: 'row';
+												attributeAt: 'data-masonry'
+												put: '{&quot;percentPosition&quot;: true }';
+												with: [ self renderProjectOn: html ] ] ] ] ] ]
 ]
 
 { #category : 'accessing' }
@@ -379,7 +394,7 @@ PageIndex class >> updateHtmlRoot: root [
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'.
 	root javascript url:
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'.
-	root javascript url:
+	root javascript defer url:
 		'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'.
 	root link
 		relationship: 'icon';
