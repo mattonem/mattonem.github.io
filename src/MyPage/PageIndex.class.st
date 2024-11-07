@@ -406,17 +406,25 @@ PageIndex class >> updateHtmlRoot: root [
 ]
 
 { #category : 'initialize-release' }
+PageIndex >> resetMasonry [
+
+	| masonries |
+	masonries := document querySelectorAll: '.row[data-masonry]'.
+	^ masonries do: [ :e |
+		  Masonry new: e with: {
+				  (#itemSelector -> '.item').
+				  (#percentPosition -> true) } ]
+]
+
+{ #category : 'initialize-release' }
 PageIndex >> start [
 
 	super start.
 
 
 	(document querySelectorAll: 'img') do: [ :anImage |
-		anImage addEventListener: 'onLoad' block: [
-			| masonries |
-			masonries := document querySelectorAll: '.row[data-masonry]'.
-			masonries do: [ :e |
-				Masonry new: e options: {
-						(#itemSelector -> '.item').
-						(#percentPosition -> true) } ] ] ]
+		anImage complete
+			ifTrue: [ self resetMasonry ]
+			ifFalse: [
+			anImage addEventListener: 'load' block: [ self resetMasonry ] ] ]
 ]
