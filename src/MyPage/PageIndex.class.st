@@ -3,6 +3,9 @@ Class {
 	#superclass : 'PjFileBasedWebApp',
 	#traits : 'StaticComponentHolder',
 	#classTraits : 'StaticComponentHolder classTrait',
+	#pools : [
+		'MasonryPool'
+	],
 	#classInstVars : [
 		'staticComponents',
 		'translator'
@@ -48,7 +51,7 @@ PageIndex class >> bridgeClientClass [
 PageIndex class >> cardWith: withBlock on: html [
 
 	html div
-		class: 'col-xl-3  col-lg-4 mb-5 col-sm-6';
+		class: 'col-xl-3 col-lg-4 mb-5 col-sm-6 item';
 		with: [
 			html div
 				class: 'card ';
@@ -400,4 +403,20 @@ PageIndex class >> updateHtmlRoot: root [
 		relationship: 'icon';
 		type: WCMimeType imageXIcon;
 		url: 'https://cdn-icons-png.freepik.com/256/17134/17134711.png'
+]
+
+{ #category : 'initialize-release' }
+PageIndex >> start [
+
+	super start.
+
+
+	(document querySelectorAll: 'img') do: [ :anImage |
+		anImage addEventListener: 'onLoad' block: [
+			| masonries |
+			masonries := document querySelectorAll: '.row[data-masonry]'.
+			masonries do: [ :e |
+				Masonry new: e options: {
+						(#itemSelector -> '.item').
+						(#percentPosition -> true) } ] ] ]
 ]
