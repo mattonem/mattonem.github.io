@@ -300,6 +300,28 @@ PageIndex class >> renderKataOn: html [
 		aPragma method valueWithReceiver: self arguments: { html } ]
 ]
 
+{ #category : 'cards' }
+PageIndex class >> renderPharasteroidsOn: html [
+
+	<pharoJsSkip>
+	<renderProjectOrder: 2>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #pharasteroids) ].
+			html image
+				class: 'card-img';
+				url: '	https://www.svgrepo.com/show/138945/spaceship.svg'.
+			html anchor
+				class: 'stretched-link';
+				url: '/GBAsteroid' ]
+		on: html
+]
+
 { #category : 'accessing' }
 PageIndex class >> renderProjectOn: html [
 

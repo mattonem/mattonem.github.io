@@ -64,6 +64,8 @@ PageIndexI18N class >> initialize [
 { #category : 'class initialization' }
 PageIndexI18N class >> noTranslationRequired: translator [
 
-	translator translationMap at: #name put: 'Max Mattone';
-	at: #gameOfLife put: 'Game of Life'
+	translator translationMap
+		at: #name put: 'Max Mattone';
+		at: #gameOfLife put: 'Game of Life';
+		at: #pharasteroids put: 'Pharasteroids'
 ]
