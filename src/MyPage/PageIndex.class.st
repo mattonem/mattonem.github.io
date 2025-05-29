@@ -424,7 +424,7 @@ PageIndex class >> updateHtmlRoot: root [
 	root link
 		relationship: 'icon';
 		type: WCMimeType imageXIcon;
-		url: '/favicon.svg'
+		url: 'assets/favicon.svg'
 ]
 
 { #category : 'initialize-release' }
