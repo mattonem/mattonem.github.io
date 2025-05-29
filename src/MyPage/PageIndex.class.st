@@ -164,7 +164,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 						with: (self translator translationFor: #browserDetails) ].
 			html image
 				class: 'card-img';
-				url: '	https://cdn-icons-png.freepik.com/256/12591/12591754.png'.
+				url: 'assets/browser_details.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -356,7 +356,6 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 
 { #category : 'cards' }
 PageIndex class >> renderWhereIsMyIp: html [
-	"https://cdn-icons-png.freepik.com/256/1692/1692037.png"
 
 	<pharoJsSkip>
 	<renderKataOrder: 3>
@@ -370,7 +369,7 @@ PageIndex class >> renderWhereIsMyIp: html [
 						with: (self translator translationFor: #whereIsMyIp) ].
 			html image
 				class: 'card-img';
-				url: 'https://cdn-icons-png.freepik.com/256/1692/1692037.png'.
+				url: 'assets/ip_localization_logo.svg'.
 
 			html anchor
 				class: 'stretched-link';
