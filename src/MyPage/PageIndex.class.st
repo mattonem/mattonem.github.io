@@ -233,7 +233,7 @@ PageIndex class >> renderGameboxOn: html [
 						with: (self translator translationFor: #gamebox) ].
 			html image
 				class: 'card-img';
-				url: '	https://www.svgrepo.com/show/183134/canvas-paint.svg'.
+				url: 'assets/composite_framework_gamebox.svg'.
 			html div
 				class: 'card-body';
 				with: [ html paragraph with: (self translator translationFor: #gameboxDesc) ].
