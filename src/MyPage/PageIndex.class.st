@@ -165,7 +165,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 			html image
 				class: 'card-img';
 				url: 'assets/browser_details.svg';
-				altTex: 'Illustration of browser details'.
+				altText: 'Illustration of browser details'.
 
 			html anchor
 				class: 'stretched-link';
@@ -189,7 +189,7 @@ PageIndex class >> renderDiamondSquare: html [
 			html image
 				class: 'card-img';
 				url: 'assets/diamond_square_algorithm.svg';
-				altTex: 'Visualization of the diamond-square algorithm'.
+				altText: 'Visualization of the diamond-square algorithm'.
 
 			html anchor
 				class: 'stretched-link';
@@ -213,7 +213,7 @@ PageIndex class >> renderGameOfLife: html [
 			html image
 				class: 'card-img';
 				url: 'assets/conway_game_of_life.svg';
-				altTex: 'Representation of Conway''s Game of Life'.
+				altText: 'Representation of Conway''s Game of Life'.
 
 			html anchor
 				class: 'stretched-link';
@@ -237,7 +237,7 @@ PageIndex class >> renderGameboxOn: html [
 			html image
 				class: 'card-img';
 				url: 'assets/composite_framework_gamebox.svg';
-				altTex: 'Framework for interactive HTML canvas'.
+				altText: 'Framework for interactive HTML canvas'.
 			html div
 				class: 'card-body';
 				with: [ html paragraph with: (self translator translationFor: #gameboxDesc) ].
@@ -264,7 +264,7 @@ PageIndex class >> renderGeoHashViewer: html [
 			html image
 				class: 'card-img';
 				url: 'assets/geohash_viewer.svg';
-				altTex: 'Geohash visualization tool'.
+				altText: 'Geohash visualization tool'.
 
 			html anchor
 				class: 'stretched-link';
@@ -288,7 +288,7 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 			html image
 				class: 'card-img';
 				url: 'assets/geohash_viewer.svg';
-				altTex: 'Automatic geohash coverage visualization'.
+				altText: 'Automatic geohash coverage visualization'.
 
 			html anchor
 				class: 'stretched-link';
@@ -352,7 +352,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 			html image
 				class: 'card-img';
 				url: 'assets/ubuntu_release_generator.svg';
-				altTex: 'Ubuntu release name generator'.
+				altText: 'Ubuntu release name generator'.
 
 			html anchor
 				class: 'stretched-link';
@@ -376,7 +376,7 @@ PageIndex class >> renderWhereIsMyIp: html [
 			html image
 				class: 'card-img';
 				url: 'assets/ip_localization.svg';
-				altTex: 'IP localization tool'.
+				altText: 'IP localization tool'.
 
 			html anchor
 				class: 'stretched-link';
