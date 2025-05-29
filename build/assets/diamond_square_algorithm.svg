@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="terrainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="15%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#e8dcc6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d4f4d4;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#fff8dc;stop-opacity:1" />
+      <stop offset="85%" style="stop-color:#e6f3ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8d4f0;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="mountainPeak" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:0.8" />
+    </radialGradient>
+    <radialGradient id="waterPoint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4682B4;stop-opacity:0.8" />
+    </radialGradient>
+    <radialGradient id="forestPoint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#98FB98;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:0.8" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background square with terrain gradient -->
+  <rect width="200" height="200" fill="url(#terrainGradient)" rx="20"/>
+  
+  <!-- Generated terrain mesh -->
+  <g opacity="0.2">
+    <!-- Terrain triangulation showing generated landscape -->
+    <polygon points="50,50 100,40 150,60 100,80" fill="#d2b48c" opacity="0.4"/>
+    <polygon points="50,150 100,140 150,160 100,180" fill="#98fb98" opacity="0.4"/>
+    <polygon points="40,100 90,90 140,110 90,130" fill="#87ceeb" opacity="0.4"/>
+    <polygon points="110,90 160,80 210,100 160,120" fill="#ffd700" opacity="0.4"/>
+  </g>
+  
+  <!-- Main algorithm visualization -->
+  <g transform="translate(100, 100)">
+    
+    <!-- Diamond shape (rotated square) representing the diamond step -->
+    <g transform="rotate(45)">
+      <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="#999" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+    </g>
+    
+    <!-- Square shape representing the square step -->
+    <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="#999" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+    
+    <!-- Height points representing terrain elevations -->
+    <!-- Corner points (initial random heights) -->
+    <circle cx="-50" cy="-50" r="8" fill="url(#mountainPeak)" filter="url(#softGlow)"/>
+    <circle cx="50" cy="-50" r="8" fill="url(#waterPoint)" filter="url(#softGlow)"/>
+    <circle cx="-50" cy="50" r="8" fill="url(#forestPoint)" filter="url(#softGlow)"/>
+    <circle cx="50" cy="50" r="8" fill="url(#mountainPeak)" filter="url(#softGlow)"/>
+    
+    <!-- Center point (diamond step - average of corners + random) -->
+    <circle cx="0" cy="0" r="12" fill="#FFD700" filter="url(#glow)"/>
+    
+    <!-- Edge midpoints (square step - average of adjacent points + random) -->
+    <circle cx="0" cy="-50" r="6" fill="#98FB98" filter="url(#softGlow)"/>
+    <circle cx="50" cy="0" r="6" fill="#87CEEB" filter="url(#softGlow)"/>
+    <circle cx="0" cy="50" r="6" fill="#228B22" filter="url(#softGlow)"/>
+    <circle cx="-50" cy="0" r="6" fill="#8B4513" filter="url(#softGlow)"/>
+    
+    <!-- Terrain interpolation lines showing height relationships -->
+    <g opacity="0.4" stroke="#666" stroke-width="1">
+      <!-- Diamond connections (corner to center) -->
+      <line x1="-50" y1="-50" x2="0" y2="0"/>
+      <line x1="50" y1="-50" x2="0" y2="0"/>
+      <line x1="-50" y1="50" x2="0" y2="0"/>
+      <line x1="50" y1="50" x2="0" y2="0"/>
+      
+      <!-- Square connections (edge interpolations) -->
+      <line x1="-50" y1="-50" x2="0" y2="-50"/>
+      <line x1="50" y1="-50" x2="0" y2="-50"/>
+      <line x1="-50" y1="-50" x2="-50" y2="0"/>
+      <line x1="-50" y1="50" x2="-50" y2="0"/>
+      <line x1="50" y1="-50" x2="50" y2="0"/>
+      <line x1="50" y1="50" x2="50" y2="0"/>
+      <line x1="-50" y1="50" x2="0" y2="50"/>
+      <line x1="50" y1="50" x2="0" y2="50"/>
+    </g>
+    
+    <!-- Recursive terrain subdivision (next iteration) -->
+    <g opacity="0.7">
+      <!-- Top-left quadrant (mountain region) -->
+      <circle cx="-25" cy="-25" r="4" fill="#D3D3D3" filter="url(#softGlow)"/>
+      <circle cx="-25" cy="-50" r="2" fill="#F5F5F5" opacity="0.8"/>
+      <circle cx="-50" cy="-25" r="2" fill="#F0F0F0" opacity="0.8"/>
+      <circle cx="-25" cy="0" r="2" fill="#E0E0E0" opacity="0.8"/>
+      <circle cx="0" cy="-25" r="2" fill="#E8E8E8" opacity="0.8"/>
+      
+      <!-- Top-right quadrant (coastal region) -->
+      <circle cx="25" cy="-25" r="4" fill="#B0E0E6" filter="url(#softGlow)"/>
+      <circle cx="25" cy="-50" r="2" fill="#E0F6FF" opacity="0.8"/>
+      <circle cx="50" cy="-25" r="2" fill="#F0F8FF" opacity="0.8"/>
+      <circle cx="25" cy="0" r="2" fill="#87CEEB" opacity="0.8"/>
+      <circle cx="0" cy="-25" r="2" fill="#ADD8E6" opacity="0.8"/>
+      
+      <!-- Bottom-left quadrant (forest region) -->
+      <circle cx="-25" cy="25" r="4" fill="#90EE90" filter="url(#softGlow)"/>
+      <circle cx="-25" cy="50" r="2" fill="#F0FFF0" opacity="0.8"/>
+      <circle cx="-50" cy="25" r="2" fill="#98FB98" opacity="0.8"/>
+      <circle cx="-25" cy="0" r="2" fill="#9ACD32" opacity="0.8"/>
+      <circle cx="0" cy="25" r="2" fill="#7CFC00" opacity="0.8"/>
+      
+      <!-- Bottom-right quadrant (highland region) -->
+      <circle cx="25" cy="25" r="4" fill="#F4A460" filter="url(#softGlow)"/>
+      <circle cx="25" cy="50" r="2" fill="#FAEBD7" opacity="0.8"/>
+      <circle cx="50" cy="25" r="2" fill="#DEB887" opacity="0.8"/>
+      <circle cx="25" cy="0" r="2" fill="#D2B48C" opacity="0.8"/>
+      <circle cx="0" cy="25" r="2" fill="#BC8F8F" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Terrain contour lines -->
+  <g opacity="0.4" fill="none" stroke="#666" stroke-width="1">
+    <ellipse cx="100" cy="100" rx="80" ry="60" stroke-dasharray="2,2"/>
+    <ellipse cx="100" cy="100" rx="60" ry="45" stroke-dasharray="2,2"/>
+    <ellipse cx="100" cy="100" rx="40" ry="30" stroke-dasharray="2,2"/>
+  </g>
+</svg>

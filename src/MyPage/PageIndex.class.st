@@ -187,7 +187,7 @@ PageIndex class >> renderDiamondSquare: html [
 						with: (self translator translationFor: #diamondSquare) ].
 			html image
 				class: 'card-img';
-				url: 'https://cdn-icons-png.freepik.com/256/5342/5342107.png'.
+				url: 'assets/diamond_square_algorithm.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -346,7 +346,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 						with: (self translator translationFor: #ubuntuNameGenerator) ].
 			html image
 				class: 'card-img';
-				url: 'https://cdn-icons-png.freepik.com/256/5969/5969193.png'.
+				url: 'assets/ubuntu_release_generator.svg'.
 
 			html anchor
 				class: 'stretched-link';
