@@ -210,7 +210,7 @@ PageIndex class >> renderGameOfLife: html [
 						with: (self translator translationFor: #gameOfLife) ].
 			html image
 				class: 'card-img';
-				url: 'https://www.svgrepo.com/show/516573/game-of-life.svg'.
+				url: 'assets/conway_game_of_life.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -260,7 +260,7 @@ PageIndex class >> renderGeoHashViewer: html [
 						with: (self translator translationFor: #geohashViewer) ].
 			html image
 				class: 'card-img';
-				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
+				url: 'assets/geohash_viewer_logo.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -283,7 +283,7 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 						with: (self translator translationFor: #geohashViewerAuto) ].
 			html image
 				class: 'card-img';
-				url: 'https://cdn-icons-png.freepik.com/256/717/717498.png'.
+				url: 'assets/geohash_viewer_logo.svg'.
 
 			html anchor
 				class: 'stretched-link';
