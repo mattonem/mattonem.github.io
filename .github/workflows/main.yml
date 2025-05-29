@@ -35,21 +35,18 @@ jobs:
         shell: bash
         timeout-minutes: 15
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: build
           # A file, directory or wildcard pattern that describes what to upload
           path: build
           # The desired behavior if no files are found using the provided path.
-          if-no-files-found: error
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v1.0.8
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          # Path of the directory containing the static assets.
-          path: build
-          # Duration after which artifact will expire in days.
-          retention-days: 1 
+          path: build/
   deploy:
     needs: build
 
