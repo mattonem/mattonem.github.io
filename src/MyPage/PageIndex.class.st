@@ -321,7 +321,7 @@ PageIndex class >> renderPharasteroidsOn: html [
 						with: (self translator translationFor: #pharasteroids) ].
 			html image
 				class: 'card-img';
-				url: '	https://www.svgrepo.com/show/138945/spaceship.svg'.
+				url: 'assets/spaceship_in_space.svg'.
 			html anchor
 				class: 'stretched-link';
 				url: '/GBAsteroid' ]
