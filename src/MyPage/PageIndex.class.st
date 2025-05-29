@@ -164,7 +164,8 @@ PageIndex class >> renderBrowserDetailsOn: html [
 						with: (self translator translationFor: #browserDetails) ].
 			html image
 				class: 'card-img';
-				url: 'assets/browser_details.svg'.
+				url: 'assets/browser_details.svg';
+				alt: 'Illustration of browser details'.
 
 			html anchor
 				class: 'stretched-link';
@@ -187,7 +188,8 @@ PageIndex class >> renderDiamondSquare: html [
 						with: (self translator translationFor: #diamondSquare) ].
 			html image
 				class: 'card-img';
-				url: 'assets/diamond_square_algorithm.svg'.
+				url: 'assets/diamond_square_algorithm.svg';
+				alt: 'Visualization of the diamond-square algorithm'.
 
 			html anchor
 				class: 'stretched-link';
@@ -210,7 +212,8 @@ PageIndex class >> renderGameOfLife: html [
 						with: (self translator translationFor: #gameOfLife) ].
 			html image
 				class: 'card-img';
-				url: 'assets/conway_game_of_life.svg'.
+				url: 'assets/conway_game_of_life.svg';
+				alt: 'Representation of Conway''s Game of Life'.
 
 			html anchor
 				class: 'stretched-link';
@@ -233,7 +236,8 @@ PageIndex class >> renderGameboxOn: html [
 						with: (self translator translationFor: #gamebox) ].
 			html image
 				class: 'card-img';
-				url: 'assets/composite_framework_gamebox.svg'.
+				url: 'assets/composite_framework_gamebox.svg';
+				alt: 'Framework for interactive HTML canvas'.
 			html div
 				class: 'card-body';
 				with: [ html paragraph with: (self translator translationFor: #gameboxDesc) ].
@@ -260,7 +264,8 @@ PageIndex class >> renderGeoHashViewer: html [
 						with: (self translator translationFor: #geohashViewer) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer.svg'.
+				url: 'assets/geohash_viewer.svg';
+				alt: 'Geohash visualization tool'.
 
 			html anchor
 				class: 'stretched-link';
@@ -283,7 +288,8 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 						with: (self translator translationFor: #geohashViewerAuto) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer.svg'.
+				url: 'assets/geohash_viewer.svg';
+				alt: 'Automatic geohash coverage visualization'.
 
 			html anchor
 				class: 'stretched-link';
@@ -346,7 +352,8 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 						with: (self translator translationFor: #ubuntuNameGenerator) ].
 			html image
 				class: 'card-img';
-				url: 'assets/ubuntu_release_generator.svg'.
+				url: 'assets/ubuntu_release_generator.svg';
+				alt: 'Ubuntu release name generator'.
 
 			html anchor
 				class: 'stretched-link';
@@ -369,7 +376,8 @@ PageIndex class >> renderWhereIsMyIp: html [
 						with: (self translator translationFor: #whereIsMyIp) ].
 			html image
 				class: 'card-img';
-				url: 'assets/ip_localization.svg'.
+				url: 'assets/ip_localization.svg';
+				alt: 'IP localization tool'.
 
 			html anchor
 				class: 'stretched-link';
