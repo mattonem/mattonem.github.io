@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .bg { fill: #1e40af; } /* Deep blue background */
+      .sail { fill: #fbbf24; } /* Golden sail */
+      .boat { fill: #374151; } /* Dark gray boat */
+      .water { fill: #3b82f6; } /* Light blue water */
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="32" height="32" rx="4"/>
+
+  <!-- Water -->
+  <rect class="water" x="0" y="24" width="32" height="8"/>
+
+  <!-- Boat -->
+  <rect class="boat" x="12" y="20" width="8" height="4" rx="1"/>
+
+  <!-- Sail -->
+  <polygon class="sail" points="16,6 16,20 22,20"/>
+
+  <!-- Motto (abbreviated) -->
+  <text x="16" y="30" fill="white" font-family="monospace" font-size="3" text-anchor="middle">PSLR</text>
+</svg>

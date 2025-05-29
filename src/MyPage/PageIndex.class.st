@@ -424,7 +424,7 @@ PageIndex class >> updateHtmlRoot: root [
 	root link
 		relationship: 'icon';
 		type: WCMimeType imageXIcon;
-		url: 'https://cdn-icons-png.freepik.com/256/17134/17134711.png'
+		url: '/favicon.svg'
 ]
 
 { #category : 'initialize-release' }
