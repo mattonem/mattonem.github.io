@@ -250,7 +250,6 @@ PageIndex class >> renderGameboxOn: html [
 
 { #category : 'cards' }
 PageIndex class >> renderGeoHashViewer: html [
-	"https://cdn-icons-png.freepik.com/256/717/717498.png"
 
 	<pharoJsSkip>
 	<renderKataOrder: 4>
@@ -343,7 +342,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 	<pharoJsSkip>
 	<renderKataOrder: 2>
 	self
-		cardWith: [ "https://cdn-icons-png.freepik.com/256/16060/16060923.png"
+		cardWith: [ 
 			html div
 				class: 'card-header';
 				with: [
