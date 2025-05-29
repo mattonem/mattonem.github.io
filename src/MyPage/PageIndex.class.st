@@ -260,7 +260,7 @@ PageIndex class >> renderGeoHashViewer: html [
 						with: (self translator translationFor: #geohashViewer) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer_logo.svg'.
+				url: 'assets/geohash_viewer.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -283,7 +283,7 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 						with: (self translator translationFor: #geohashViewerAuto) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer_logo.svg'.
+				url: 'assets/geohash_viewer.svg'.
 
 			html anchor
 				class: 'stretched-link';
@@ -369,7 +369,7 @@ PageIndex class >> renderWhereIsMyIp: html [
 						with: (self translator translationFor: #whereIsMyIp) ].
 			html image
 				class: 'card-img';
-				url: 'assets/ip_localization_logo.svg'.
+				url: 'assets/ip_localization.svg'.
 
 			html anchor
 				class: 'stretched-link';
