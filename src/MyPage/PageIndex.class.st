@@ -342,7 +342,7 @@ PageIndex class >> renderCookingBookOn: html [
 						with: (self translator translationFor: #cookingBook) ].
 			html image
 				class: 'card-img';
-				url: 'assets/cooking_book.svg';
+				url: 'archive-md/assets/images/favicon.svg';
 				altText: 'Cooking book and recipes'.
 			html div
 				class: 'card-body';
