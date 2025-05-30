@@ -27,7 +27,9 @@ PageIndexI18N class >> enTranslations [
 		at: #diamondSquare put: 'Diamond-square algorithm';
 		at: #projectHeader put: 'Projects';
 		at: #gamebox put: 'Gamebox';
-		at: #gameboxDesc put: 'An interactive html canvas framework'
+		at: #gameboxDesc put: 'An interactive html canvas framework';
+		at: #cookingBook put: 'Cooking Book';
+		at: #cookingBookDesc put: 'A collection of recipes and cooking notes'
 ]
 
 { #category : 'class initialization' }
@@ -51,7 +53,9 @@ PageIndexI18N class >> frTranslations [
 		at: #diamondSquare put: 'Algorithme Diamant-Carré Kata';
 		at: #projectHeader put: 'Projets';
 		at: #gamebox put: 'Gamebox';
-		at: #gameboxDesc put: 'Un framework interactif pour canvas html'
+		at: #gameboxDesc put: 'Un framework interactif pour canvas html';
+		at: #cookingBook put: 'Livre de Cuisine';
+		at: #cookingBookDesc put: 'Une collection de recettes et notes culinaires'
 ]
 
 { #category : 'class initialization' }
