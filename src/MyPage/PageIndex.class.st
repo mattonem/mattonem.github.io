@@ -327,6 +327,33 @@ PageIndex class >> renderPharasteroidsOn: html [
 		on: html
 ]
 
+{ #category : 'cards' }
+PageIndex class >> renderCookingBookOn: html [
+
+	<pharoJsSkip>
+	<renderProjectOrder: 3>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #cookingBook) ].
+			html image
+				class: 'card-img';
+				url: 'assets/cooking_book.svg';
+				altText: 'Cooking book and recipes'.
+			html div
+				class: 'card-body';
+				with: [ html paragraph with: (self translator translationFor: #cookingBookDesc) ].
+
+			html anchor
+				class: 'stretched-link';
+				url: '/archive-md' ]
+		on: html
+]
+
 { #category : 'accessing' }
 PageIndex class >> renderProjectOn: html [
 
