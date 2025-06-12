@@ -483,3 +483,26 @@ PageIndex >> start [
 			ifFalse: [
 			anImage addEventListener: 'load' block: [ self resetMasonry ] ] ]
 ]
+
+{ #category : 'cards' }
+PageIndex class >> renderLoanCalculatorOn: html [
+
+    <pharoJsSkip>
+    <renderProjectOrder: 4>
+    self
+        cardWith: [
+            html div
+                class: 'card-header';
+                with: [
+                    html heading
+                        level: 3;
+                        with: (self translator translationFor: #loanCalculator) ].
+            html image
+                class: 'card-img';
+                url: 'assets/loan_calculator.svg';
+                altText: 'Loan calculator web app'.
+            html anchor
+                class: 'stretched-link';
+                url: '/loan-calculator' ]
+        on: html
+]

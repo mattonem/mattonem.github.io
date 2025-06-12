@@ -29,7 +29,8 @@ PageIndexI18N class >> enTranslations [
 		at: #gamebox put: 'Gamebox';
 		at: #gameboxDesc put: 'An interactive html canvas framework';
 		at: #cookingBook put: 'Cooking Book';
-		at: #cookingBookDesc put: 'A collection of recipes and cooking notes'
+		at: #cookingBookDesc put: 'A collection of recipes and cooking notes';
+		at: #loanCalculator put: 'Loan Calculator'
 ]
 
 { #category : 'class initialization' }
@@ -55,7 +56,8 @@ PageIndexI18N class >> frTranslations [
 		at: #gamebox put: 'Gamebox';
 		at: #gameboxDesc put: 'Un framework interactif pour canvas html';
 		at: #cookingBook put: 'Livre de Cuisine';
-		at: #cookingBookDesc put: 'Une collection de recettes et notes culinaires'
+		at: #cookingBookDesc put: 'Une collection de recettes et notes culinaires';
+		at: #loanCalculator put: 'Calculateur de prêt'
 ]
 
 { #category : 'class initialization' }
