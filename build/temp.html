@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Fiches Personnages</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom animation for pulsing elements */
+        @keyframes pulse-intense {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+        .animate-pulse-intense {
+            animation: pulse-intense 1.5s infinite;
+        }
+        /* Hide scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+        textarea {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Main Application Container -->
+    <div id="app" class="min-h-screen flex flex-col items-center p-4 md:p-8">
+        
+        <!-- Modals Container -->
+        <div id="modals-container"></div>
+
+        <div class="bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-7xl">
+            <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">Gestionnaire de Fiche Personnage</h2>
+
+            <!-- Character Creation Section (Visible by default) -->
+            <div id="character-creation-section">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+
+            <!-- Character Sheet Section (Hidden by default) -->
+            <div id="character-sheet-section" class="hidden">
+                 <!-- Content will be injected by JavaScript -->
+            </div>
+
+            <!-- Save/Load Section -->
+            <div id="save-load-section" class="p-4 sm:p-6 bg-gray-700 rounded-xl shadow-inner mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-purple-300">Sauvegarde et Chargement</h3>
+                <div class="flex flex-col gap-4">
+                    <button id="save-button" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-md">Générer un code de sauvegarde</button>
+                    <div id="save-code-container" class="relative hidden">
+                        <textarea readonly id="save-code-output" class="w-full bg-gray-800 text-white border border-gray-600 rounded-lg p-2 focus:ring focus:ring-purple-500 resize-none h-24" placeholder="Votre code de sauvegarde apparaîtra ici"></textarea>
+                        <button id="copy-code-button" class="absolute top-2 right-2 bg-purple-500 hover:bg-purple-600 text-white text-xs px-2 py-1 rounded-md">Copier</button>
+                    </div>
+                    <div>
+                        <label for="saveCodeInput" class="block text-gray-300 font-medium mb-1">Coller un code pour charger</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="saveCodeInput" class="flex-1 bg-gray-800 text-white border border-gray-600 rounded-lg p-2 focus:ring focus:ring-purple-500" placeholder="Collez le code ici...">
+                            <button id="load-button" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-md">Charger</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // --- Wait for the DOM to be fully loaded before running the script ---
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- STATE MANAGEMENT ---
+        // A single object to hold the entire state of the application, similar to React's state.
+        const state = {
+            character: null,
+            diceResult: null,
+            fractureModalOpen: false,
+            notesModalOpen: false,
+            newCharacter: {
+                name: '', race: 'humain',
+                stats: { FOR: 0, RES: 0, CHA: 0, SAV: 0, DEX: 0, PER: 0 },
+                pv: 5, pt: 0, pe: 0, bastos: 1000, pp: 0,
+                inventory: [], skeletonType: 'biologique', cybernetics: [],
+                activeStatus: 'ok', fractureLocation: '', notes: '',
+            }
+        };
+
+        // --- CONSTANTS & DATA ---
+        const statEmojis = { FOR: '💪', RES: '🛡️', CHA: '💬', SAV: '📚', DEX: '👋', PER: '👁️' };
+        const skeletonOptions = {
+            biologique: { name: "Biologique", slots: 0, ability: "Aucune modification cybernétique disponible." },
+            eco: { name: "Squelette ECO+", slots: 1, ability: "1 Slot par membre." },
+            serie: { name: "Squelette de Serie", slots: 2, ability: "2 Slots par membre." },
+            arkanic: { name: "Squelette Arkanic", slots: 2, ability: "2 Slots + Sauvegarde du sortilège au niveau auquel il est gravé." },
+            spartan: { name: "Squelette Spartan", slots: 2, ability: "2 Slots + Immunité aux fractures 🦴." },
+            pnp: { name: "Squelette Plug'n'Play", slots: 1, ability: "1 Slot + Peut installer n'importe quel MODs sans aide." },
+            gold: { name: "Squelette Gold Rush", slots: 3, ability: "3 Slots par membre." },
+        };
+        const statusEffects = {
+            ok: { emoji: '😀', name: 'TOUT VA BIEN', description: "Vous n'êtes affecté par aucun effet." },
+            burn: { emoji: '🔥', name: 'BRÛLURES', description: "Perte de 1 PV par tour." },
+            bleed: { emoji: '🩸', name: 'SAIGNEMENTS', description: "Chaque action coûte 1 PV." },
+            stun: { emoji: '💫', name: 'ÉTOURDISSEMENT', description: "Inerte pour la durée de la crise." },
+            fracture: { emoji: '🦴', name: 'FRACTURE', description: "FOR, DEX, RES ou PER / 2 selon la localisation." },
+            hypoesthesia: { emoji: '🧿', name: 'HYPOESTHÉSIE', description: "PER / 2, perte possible d'autres sens." },
+            pasTop: { emoji: '💦', name: 'PAS TOP TOP', description: "Seuil de réussite de toutes les actions malussé de 1 (ex: 8+ devient 9+)." },
+            snare: { emoji: '🔗', name: 'ENTRAVE', description: "Ne peut plus se déplacer mais peut toujours agir." },
+            sick: { emoji: '💩', name: 'MALADE', description: "Test de RES avant chaque action pour ne pas passer son tour." },
+            frenzy: { emoji: '💢', name: 'FRÉNÉSIE', description: "Ne différencie plus alliés et ennemis." },
+        };
+        const raceAbilities = {
+            humain: { name: "Dividendes", description: "50₿ par 🎲 [CHA] toutes les 4h ou par partie." },
+            troll: { name: "Résistance Naturelle", description: "Résistance x2 lors d'un test contre toxines, poisons, radiations, etc." },
+            elfe: { name: "Organisé", description: "+2 PC📦 supplémentaires." },
+            demon: { name: "Savoir Ancestral", description: "-1 PT🌀 lors de l'utilisation de la magie." },
+            droide: { name: "Peau de Fer", description: "+1 PP💜 permanent." },
+            trifide: { name: "Photosynthèse", description: "Soin total (peut faire repousser les membres) 1 fois par partie." },
+        };
+        const statColors = {
+            FOR: 'bg-red-900/50 border-red-700', RES: 'bg-orange-900/50 border-orange-700', CHA: 'bg-yellow-900/50 border-yellow-700',
+            SAV: 'bg-blue-900/50 border-blue-700', DEX: 'bg-green-900/50 border-green-700', PER: 'bg-pink-900/50 border-pink-700',
+            default: 'bg-gray-800/50 border-gray-600'
+        };
+
+        // --- DOM ELEMENT REFERENCES ---
+        const creationSection = document.getElementById('character-creation-section');
+        const sheetSection = document.getElementById('character-sheet-section');
+        const modalsContainer = document.getElementById('modals-container');
+        const saveButton = document.getElementById('save-button');
+        const loadButton = document.getElementById('load-button');
+        const copyCodeButton = document.getElementById('copy-code-button');
+        const saveCodeContainer = document.getElementById('save-code-container');
+        const saveCodeOutput = document.getElementById('save-code-output');
+        const saveCodeInput = document.getElementById('saveCodeInput');
+
+        // --- LOGIC & HELPER FUNCTIONS ---
+        
+        /**
+         * Calculates derived stats like PV, PA, PC based on base stats and effects.
+         * @param {object} char - The character object.
+         * @returns {object} An object with all calculated stats.
+         */
+        const calculateDerivedStats = (char) => {
+            if (!char) return {};
+            const ptReduction = Math.floor(char.pt / 10);
+            let reducedStats = {
+                FOR: Math.max(0, char.stats.FOR - ptReduction), RES: Math.max(0, char.stats.RES - ptReduction),
+                CHA: Math.max(0, char.stats.CHA - ptReduction), SAV: Math.max(0, char.stats.SAV - ptReduction),
+                DEX: Math.max(0, char.stats.DEX - ptReduction), PER: Math.max(0, char.stats.PER - ptReduction),
+            };
+
+            if (char.activeStatus === 'hypoesthesia') { reducedStats.PER = Math.ceil(reducedStats.PER / 2); }
+            if (char.activeStatus === 'fracture' && char.fractureLocation) {
+                const loc = char.fractureLocation;
+                if (loc.includes('Jambe')) { reducedStats.FOR = Math.ceil(reducedStats.FOR / 2); }
+                if (loc.includes('Bras')) { reducedStats.DEX = Math.ceil(reducedStats.DEX / 2); }
+                if (loc === 'Torse') { reducedStats.RES = Math.ceil(reducedStats.RES / 2); }
+                if (loc === 'Tête') { reducedStats.PER = Math.ceil(reducedStats.PER / 2); }
+            }
+
+            const inventoryBonus = char.inventory.reduce((acc, item) => { acc.pc += Number(item.weight) || 0; acc.pp += Number(item.armorPoints) || 0; return acc; }, { pc: 0, pp: 0 });
+            const baseRacePP = char.race === 'droide' ? 1 : 0;
+            const raceBonusPC = char.race === 'elfe' ? 2 : 0;
+            const pc = (reducedStats.FOR + 3) + inventoryBonus.pc + raceBonusPC;
+            const pvMax = reducedStats.RES + 5;
+            const pa = Math.max(1, Math.ceil(reducedStats.DEX / 3));
+            const totalPp = baseRacePP + inventoryBonus.pp;
+            return { pc, pvMax, pa, totalPp, reducedStats };
+        };
+        
+        /**
+         * Shows a custom alert modal. Replaces the native browser alert().
+         * @param {string} message - The message to display.
+         */
+        const showAlert = (message) => {
+            const alertModalHTML = `
+                <div id="alert-modal" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
+                  <div class="bg-gray-800 p-6 rounded-2xl shadow-xl max-w-sm w-full border border-yellow-500">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-300 text-center">Notification</h3>
+                    <p class="text-center text-white mb-6">${message}</p>
+                    <button id="alert-close-button" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">OK</button>
+                  </div>
+                </div>
+            `;
+            modalsContainer.innerHTML = alertModalHTML;
+            document.getElementById('alert-close-button').addEventListener('click', () => {
+                modalsContainer.innerHTML = '';
+            });
+        };
+
+        // --- RENDER FUNCTIONS ---
+        // These functions are responsible for updating the DOM. They read from the `state` object.
+
+        /**
+         * Main render function. Decides whether to show the creation form or the character sheet.
+         */
+        const render = () => {
+            if (state.character) {
+                creationSection.classList.add('hidden');
+                sheetSection.classList.remove('hidden');
+                renderCharacterSheet();
+            } else {
+                creationSection.classList.remove('hidden');
+                sheetSection.classList.add('hidden');
+                renderCreationForm();
+            }
+            renderModals();
+        };
+
+        /**
+         * Renders all active modals based on the state.
+         */
+        const renderModals = () => {
+            let modalHTML = '';
+            if (state.diceResult) {
+                const { rolls, successes, threshold, statName } = state.diceResult;
+                const rollSpans = rolls.map(roll => {
+                    let colorClass = 'bg-gray-600';
+                    if (roll === 10) colorClass = 'bg-yellow-500 text-black animate-pulse';
+                    else if (roll >= threshold) colorClass = 'bg-green-500';
+                    else if (roll === 1) colorClass = 'bg-red-500';
+                    return `<span class="w-12 h-12 flex items-center justify-center text-xl font-bold rounded-lg ${colorClass}">${roll}</span>`;
+                }).join('');
+
+                modalHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
+                      <div class="bg-gray-800 p-6 rounded-2xl shadow-xl max-w-md w-full border border-purple-500">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-300 text-center">${statName ? `Jet de ${statName}` : 'Résultat du Jet'}</h3>
+                        <p class="text-center mb-4">Seuil de réussite : ${threshold}+</p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-4">${rollSpans}</div>
+                        <p class="text-center text-xl font-bold mb-6">🏆 Succès Total : <span class="text-green-400">${successes}</span></p>
+                        <button id="close-dice-modal" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">Fermer</button>
+                      </div>
+                    </div>`;
+            } else if (state.fractureModalOpen) {
+                 const bodyParts = ['Tête', 'Torse', 'Bras G', 'Bras D', 'Jambe G', 'Jambe D'];
+                 const partButtons = bodyParts.map(part => `<button data-location="${part}" class="fracture-part-button bg-gray-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-lg transition-colors">${part}</button>`).join('');
+                 modalHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
+                      <div class="bg-gray-800 p-6 rounded-2xl shadow-xl max-w-sm w-full border border-red-500">
+                        <h3 class="text-2xl font-bold mb-4 text-red-300 text-center">🦴 Où est la fracture ?</h3>
+                        <div class="grid grid-cols-2 gap-4">${partButtons}</div>
+                        <button id="close-fracture-modal" class="w-full mt-4 bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg">Annuler</button>
+                      </div>
+                    </div>`;
+            } else if (state.notesModalOpen) {
+                const charLimit = 5000;
+                modalHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
+                      <div class="bg-gray-800 p-6 rounded-2xl shadow-xl max-w-2xl w-full border border-purple-500 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-300 text-center">📋 Prise de Notes</h3>
+                        <textarea id="notes-textarea" maxlength="${charLimit}" class="w-full h-64 bg-gray-900 text-white border border-gray-600 rounded-lg p-2 focus:ring-1 focus:ring-purple-500 resize-none" placeholder="Écrivez vos notes ici...">${state.character.notes}</textarea>
+                        <div id="notes-char-count" class="text-right text-sm text-gray-400 mt-1">${state.character.notes.length} / ${charLimit}</div>
+                        <div class="flex gap-4 mt-4">
+                          <button id="close-notes-modal" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">Fermer</button>
+                          <button id="save-notes-button" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Sauvegarder</button>
+                        </div>
+                      </div>
+                    </div>`;
+            }
+            modalsContainer.innerHTML = modalHTML;
+            addModalEventListeners();
+        };
+        
+        /**
+         * Renders the character creation form.
+         */
+        const renderCreationForm = () => {
+            const { pvMax, totalPp } = calculateDerivedStats(state.newCharacter);
+            const statsInputs = Object.keys(state.newCharacter.stats).map(stat => `
+                <div key="${stat}">
+                    <label class="block text-gray-300 text-sm font-bold text-center mb-1">${stat}${statEmojis[stat]}</label>
+                    <input type="number" data-stat="${stat}" value="${state.newCharacter.stats[stat]}" class="new-char-stat-input w-full bg-gray-800 text-white border border-gray-600 rounded-lg p-2 text-center focus:ring-1 focus:ring-purple-500" min="0"/>
+                </div>
+            `).join('');
+            const raceOptions = Object.ke
