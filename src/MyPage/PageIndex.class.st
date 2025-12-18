@@ -506,3 +506,23 @@ PageIndex class >> renderLoanCalculatorOn: html [
                 url: '/loan-calculator' ]
         on: html
 ]
+
+{ #category : 'cards' }
+PageIndex class >> renderLoanChatRTC: html [
+
+    <pharoJsSkip>
+    <renderProjectOrder: 5>
+    self
+        cardWith: [
+            html div
+                class: 'card-header';
+                with: [
+                    html heading
+                        level: 3;
+                        with: 'ChatRTC' ].
+            
+            html anchor
+                class: 'stretched-link';
+                url: '/ChatRTC' ]
+        on: html
+]
