@@ -519,9 +519,14 @@ PageIndex class >> renderLoanChatRTC: html [
                 with: [
                     html heading
                         level: 3;
-                        with: 'ChatRTC' ].
+                        with: (self translator translationFor: #chatRTC)  ].
             
-            html anchor
+             html image
+                class: 'card-img';
+                url: 'assets/chatrtc.svg';
+                altText: 'ChatRTC webapp'.
+			
+			html anchor
                 class: 'stretched-link';
                 url: '/ChatRTC' ]
         on: html

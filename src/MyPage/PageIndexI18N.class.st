@@ -73,5 +73,6 @@ PageIndexI18N class >> noTranslationRequired: translator [
 	translator translationMap
 		at: #name put: 'Max Mattone';
 		at: #gameOfLife put: 'Game of Life';
-		at: #pharasteroids put: 'Pharasteroids'
+		at: #pharasteroids put: 'Pharasteroids';
+		at: #chatRTC put: 'Chat over WebRTC'
 ]
