@@ -526,6 +526,7 @@ PageIndex class >> renderLoanChatRTC: html [
              html image
                 class: 'card-img';
 				url: '/assets/chatrtc.svg';
+				altText: 'ChatRTC webapp'.
 			html anchor
                 class: 'stretched-link';
                 url: '/ChatRTC' ]
