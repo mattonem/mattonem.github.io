@@ -504,6 +504,9 @@ PageIndex class >> renderLoanCalculatorOn: html [
                 class: 'card-img';
                 url: '/assets/loan_calculator.svg';
                 altText: 'Loan calculator web app'.
+            html div
+                class: 'card-body';
+                with: [ html paragraph with: (self translator translationFor: #loanCalculatorDescription) ].
             html anchor
                 class: 'stretched-link';
                 url: '/loan-calculator' ]
