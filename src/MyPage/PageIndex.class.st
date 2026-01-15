@@ -83,7 +83,8 @@ PageIndex class >> generateHtmlUsing: html [
 							html heading
 								level: 1;
 								with: (self translator translationFor: #name).
-							html paragraph with: (self translator translationFor: #intro) ] ].
+							html paragraph with: (self translator translationFor: #intro).
+							html paragraph with: (self translator translationFor: #description) ] ] ].
 			html section
 				class: 'row';
 				with: [ :cont |
