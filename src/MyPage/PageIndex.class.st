@@ -166,7 +166,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 						with: (self translator translationFor: #browserDetails) ].
 			html image
 				class: 'card-img';
-				url: 'assets/browser_details.svg';
+				url: '/assets/browser_details.svg';
 				altText: 'Illustration of browser details'.
 
 			html anchor
@@ -190,7 +190,7 @@ PageIndex class >> renderDiamondSquare: html [
 						with: (self translator translationFor: #diamondSquare) ].
 			html image
 				class: 'card-img';
-				url: 'assets/diamond_square_algorithm.svg';
+				url: '/assets/diamond_square_algorithm.svg';
 				altText: 'Visualization of the diamond-square algorithm'.
 
 			html anchor
@@ -214,7 +214,7 @@ PageIndex class >> renderGameOfLife: html [
 						with: (self translator translationFor: #gameOfLife) ].
 			html image
 				class: 'card-img';
-				url: 'assets/conway_game_of_life.svg';
+				url: '/assets/conway_game_of_life.svg';
 				altText: 'Representation of Conway''s Game of Life'.
 
 			html anchor
@@ -238,7 +238,7 @@ PageIndex class >> renderGameboxOn: html [
 						with: (self translator translationFor: #gamebox) ].
 			html image
 				class: 'card-img';
-				url: 'assets/composite_framework_gamebox.svg';
+				url: '/assets/composite_framework_gamebox.svg';
 				altText: 'Framework for interactive HTML canvas'.
 			html div
 				class: 'card-body';
@@ -265,7 +265,7 @@ PageIndex class >> renderGeoHashViewer: html [
 						with: (self translator translationFor: #geohashViewer) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer.svg';
+				url: '/assets/geohash_viewer.svg';
 				altText: 'Geohash visualization tool'.
 
 			html anchor
@@ -289,7 +289,7 @@ PageIndex class >> renderGeoHashViewerAuto: html [
 						with: (self translator translationFor: #geohashViewerAuto) ].
 			html image
 				class: 'card-img';
-				url: 'assets/geohash_viewer.svg';
+				url: '/assets/geohash_viewer.svg';
 				altText: 'Automatic geohash coverage visualization'.
 
 			html anchor
@@ -322,7 +322,7 @@ PageIndex class >> renderPharasteroidsOn: html [
 						with: (self translator translationFor: #pharasteroids) ].
 			html image
 				class: 'card-img';
-				url: 'assets/spaceship_in_space.svg'.
+				url: '/assets/spaceship_in_space.svg'.
 			html anchor
 				class: 'stretched-link';
 				url: '/GBAsteroid' ]
@@ -344,7 +344,7 @@ PageIndex class >> renderCookingBookOn: html [
 						with: (self translator translationFor: #cookingBook) ].
 			html image
 				class: 'card-img';
-				url: 'archive-md/assets/images/favicon.svg';
+				url: '/archive-md/assets/images/favicon.svg';
 				altText: 'Cooking book and recipes'.
 			html div
 				class: 'card-body';
@@ -380,7 +380,7 @@ PageIndex class >> renderUBNameGeneratorOn: html [
 						with: (self translator translationFor: #ubuntuNameGenerator) ].
 			html image
 				class: 'card-img';
-				url: 'assets/ubuntu_release_generator.svg';
+				url: '/assets/ubuntu_release_generator.svg';
 				altText: 'Ubuntu release name generator'.
 
 			html anchor
@@ -404,7 +404,7 @@ PageIndex class >> renderWhereIsMyIp: html [
 						with: (self translator translationFor: #whereIsMyIp) ].
 			html image
 				class: 'card-img';
-				url: 'assets/ip_localization.svg';
+				url: '/assets/ip_localization.svg';
 				altText: 'IP localization tool'.
 
 			html anchor
@@ -459,7 +459,7 @@ PageIndex class >> updateHtmlRoot: root [
 	root link
 		relationship: 'icon';
 		type: WCMimeType imageXIcon;
-		url: 'assets/favicon.svg'
+		url: '/assets/favicon.svg'
 ]
 
 { #category : 'initialize-release' }
@@ -525,9 +525,7 @@ PageIndex class >> renderLoanChatRTC: html [
             
              html image
                 class: 'card-img';
-                url: 'assets/chatrtc.svg';
-                altText: 'ChatRTC webapp'.
-			
+				url: '/assets/chatrtc.svg';
 			html anchor
                 class: 'stretched-link';
                 url: '/ChatRTC' ]
