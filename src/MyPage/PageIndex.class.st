@@ -108,7 +108,7 @@ PageIndex class >> generateHtmlUsing: html [
 												class: 'row';
 												attributeAt: 'data-masonry'
 												put: '{&quot;percentPosition&quot;: true }';
-												with: [ self renderProjectOn: html ] ] ] ] ] ].
+												with: [ self renderProjectOn: html  ] ] ] ] ].
 			html section
 				class: 'row';
 				with: [ :cont |
@@ -131,7 +131,7 @@ PageIndex class >> generateHtmlUsing: html [
 												class: 'row';
 												attributeAt: 'data-masonry'
 												put: '{&quot;percentPosition&quot;: true }';
-												with: [ self renderKataOn: html ] ] ] ] ].
+												with: [ self renderKataOn: html ] ] ] ] ] ].
 			
 ]
 
