@@ -84,6 +84,9 @@ PageIndex class >> generateHtmlUsing: html [
 								level: 1;
 								with: (self translator translationFor: #name).
 							html paragraph with: (self translator translationFor: #intro).
+							html heading
+								level: 2;
+								with: (self translator translationFor: #descriptionTitle).
 							(self translator translationFor: #description) lines do: [ :line |
 								html paragraph with: line ] ] ].
 			html section
