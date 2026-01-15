@@ -100,7 +100,7 @@ PageIndex class >> generateHtmlUsing: html [
 										with: [
 											html heading
 												level: 2;
-												with: (self translator translationFor: #kataHeader) ].
+												with: (self translator translationFor: #projectHeader) ].
 									html div
 										class: 'card-body';
 										with: [
@@ -108,7 +108,7 @@ PageIndex class >> generateHtmlUsing: html [
 												class: 'row';
 												attributeAt: 'data-masonry'
 												put: '{&quot;percentPosition&quot;: true }';
-												with: [ self renderKataOn: html ] ] ] ] ].
+												with: [ self renderProjectOn: html ] ] ] ] ] ].
 			html section
 				class: 'row';
 				with: [ :cont |
@@ -123,7 +123,7 @@ PageIndex class >> generateHtmlUsing: html [
 										with: [
 											html heading
 												level: 2;
-												with: (self translator translationFor: #projectHeader) ].
+												with: (self translator translationFor: #kataHeader) ].
 									html div
 										class: 'card-body';
 										with: [
@@ -131,7 +131,8 @@ PageIndex class >> generateHtmlUsing: html [
 												class: 'row';
 												attributeAt: 'data-masonry'
 												put: '{&quot;percentPosition&quot;: true }';
-												with: [ self renderProjectOn: html ] ] ] ] ] ]
+												with: [ self renderKataOn: html ] ] ] ] ].
+			
 ]
 
 { #category : 'accessing' }
