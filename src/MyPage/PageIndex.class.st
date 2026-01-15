@@ -87,7 +87,7 @@ PageIndex class >> generateHtmlUsing: html [
 							(self translator translationFor: #description) lines do: [ :line |
 								html paragraph with: line ] ] ].
 			html section
-				class: 'row';
+				class: 'row mb-5';
 				with: [ :cont |
 					html div
 						class: 'col';
@@ -110,7 +110,7 @@ PageIndex class >> generateHtmlUsing: html [
 												put: '{&quot;percentPosition&quot;: true }';
 												with: [ self renderProjectOn: html  ] ] ] ] ].
 			html section
-				class: 'row';
+				class: 'row mt-5';
 				with: [ :cont |
 					html div
 						class: 'col';
