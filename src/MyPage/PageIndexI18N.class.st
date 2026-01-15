@@ -18,6 +18,11 @@ PageIndexI18N class >> enTranslations [
 		at: #title put: 'My Page';
 		at: #helloMyNameIs put: 'Hello world. My name is';
 		at: #intro put: 'Program, Sail, Learn, Repeat';
+		at: #description put: 'A Human-First Engineer: Navigating Code and the Open Sea
+
+I am a passionate Software Engineer and freelance developer who believes that technology should always serve the person behind the screen. With extensive experience in Web Fullstack development and a specialized background as a QA Expert, I build applications that are as reliable as they are functional.
+
+My technical heart lies in Smalltalk—I value the elegance of pure object-oriented design and bring that same appreciation for clean, thoughtful architecture to every project. When I’m not at my desk, you’ll likely find me navigating the waters as a dedicated sailor or exploring new corners of the world. I bring the same curiosity and adaptability from my travels into my code, always prioritizing human connection and quality above all else.';
 		at: #kataHeader put: 'Code Kata';
 		at: #browserDetails put: 'Browser details';
 		at: #geohashViewerAuto put: 'Geohash Automatic Cover';
@@ -45,6 +50,11 @@ PageIndexI18N class >> frTranslations [
 		at: #title put: 'My Page';
 		at: #helloMyNameIs put: 'Bonjour le monde. Je m''appelle';
 		at: #intro put: 'Programmer, naviguer, apprendre, réitérer';
+		at: #description put: 'L’humain au cœur de l’ingénierie : naviguer entre code et grand large
+
+Je suis un ingénieur logiciel passionné et développeur freelance, convaincu que la technologie doit toujours être au service de l’humain derrière l’écran. Fort d’une solide expérience en développement Web Fullstack et d’une expertise spécialisée en tant qu’expert QA, je conçois des applications aussi fiables que performantes.
+
+Mon cœur technique bat pour Smalltalk — j’apprécie l’élégance de la conception orientée objet pure et j'insuffle cette même exigence d’une architecture propre et réfléchie dans chaque projet. Quand je ne suis pas devant mon écran, vous me trouverez probablement sur l'eau, en tant que navigateur passionné, ou en train de découvrir de nouveaux horizons à travers le monde. Je transpose la curiosité et l’adaptabilité issues de mes voyages dans mon code, en privilégiant toujours le lien humain et la qualité avant tout.';
 		at: #kataHeader put: 'Kata de code';
 		at: #browserDetails put: 'Details du navigateur';
 		at: #geohashViewerAuto put: 'Geohash Automatic Cover';
