@@ -33,7 +33,8 @@ My technical heart lies in Smalltalk—I value the elegance of pure object-orien
 		at: #gameboxDesc put: 'An interactive html canvas framework';
 		at: #cookingBook put: 'Cooking Book';
 		at: #cookingBookDesc put: 'A collection of recipes and cooking notes';
-		at: #loanCalculator put: 'Loan Calculator'
+		at: #loanCalculator put: 'Loan Calculator';
+		at: #chatRTCDescription put: 'A real-time peer-to-peer chat application powered by WebRTC technology. Connect directly with others without intermediaries for fast, secure conversations.'
 ]
 
 { #category : 'class initialization' }
@@ -63,7 +64,8 @@ Mon cœur technique bat pour Smalltalk — j''apprécie l''élégance de la conc
 		at: #gameboxDesc put: 'Un framework interactif pour canvas html';
 		at: #cookingBook put: 'Livre de Cuisine';
 		at: #cookingBookDesc put: 'Une collection de recettes et notes culinaires';
-		at: #loanCalculator put: 'Calculateur de prêt'
+		at: #loanCalculator put: 'Calculateur de prêt';
+		at: #chatRTCDescription put: 'Une application de chat pair-à-pair en temps réel alimentée par la technologie WebRTC. Connectez-vous directement avec d''autres sans intermédiaire pour des conversations rapides et sécurisées.'
 ]
 
 { #category : 'class initialization' }
