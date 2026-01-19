@@ -35,7 +35,9 @@ My technical heart lies in Smalltalk—I value the elegance of pure object-orien
 		at: #cookingBookDesc put: 'A collection of recipes and cooking notes';
 		at: #loanCalculator put: 'Loan Calculator';
 		at: #loanCalculatorDescription put: 'A loan calculator that helps you understand your borrowing costs. Calculate monthly payments and total interest.';
-		at: #chatRTCDescription put: 'A real-time peer-to-peer chat application powered by WebRTC technology. Connect directly with others without intermediaries for fast, secure conversations.'
+		at: #chatRTCDescription put: 'A real-time peer-to-peer chat application powered by WebRTC technology. Connect directly with others without intermediaries for fast, secure conversations.';
+		at: #letsConnect put: 'Let''s Connect – Contact Me Today!';
+		at: #contactMe put: 'Contact Me'
 ]
 
 { #category : 'class initialization' }
@@ -68,7 +70,9 @@ Mon cœur technique bat pour Smalltalk — j''apprécie l''élégance de la conc
 		at: #cookingBookDesc put: 'Une collection de recettes et notes culinaires';
 		at: #loanCalculator put: 'Calculateur de prêt';
 		at: #loanCalculatorDescription put: 'Un calculateur de prêt complet pour comprendre vos coûts d''emprunt. Calculez les versements mensuels et les intérêts totaux.';
-		at: #chatRTCDescription put: 'Une application de chat pair-à-pair en temps réel alimentée par la technologie WebRTC. Connectez-vous directement avec d''autres sans intermédiaire pour des conversations rapides et sécurisées.'
+		at: #chatRTCDescription put: 'Une application de chat pair-à-pair en temps réel alimentée par la technologie WebRTC. Connectez-vous directement avec d''autres sans intermédiaire pour des conversations rapides et sécurisées.';
+		at: #letsConnect put: 'Connectons-nous – Contactez-moi Aujourd''hui!';
+		at: #contactMe put: 'Me Contacter'
 ]
 
 { #category : 'class initialization' }

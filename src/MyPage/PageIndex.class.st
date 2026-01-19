@@ -136,8 +136,24 @@ PageIndex class >> generateHtmlUsing: html [
 												put: '{&quot;percentPosition&quot;: true }';
 												with: [ self renderKataOn: html ] ] ] ] ] ].
 			
-]
-
+			html section
+				class: 'row mt-5 mb-5';
+				with: [ :cont |
+					html div
+						class: 'col';
+						with: [
+							html div
+								class: 'text-center';
+								with: [
+									html heading
+										level: 2;
+										class: 'mb-4';
+										with: (self translator translationFor: #letsConnect).
+									html anchor
+										class: 'btn btn-lg btn-primary';
+										url: 'mailto:contact@mattone.dev';
+										with: [
+											html text: (self translator translationFor: #contactMe) ] ] ] ] ]
 { #category : 'accessing' }
 PageIndex class >> initialize [ 
 	<pharoJsSkip>
