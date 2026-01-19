@@ -151,9 +151,12 @@ PageIndex class >> generateHtmlUsing: html [
 										with: (self translator translationFor: #letsConnect).
 									html anchor
 										class: 'btn btn-lg btn-primary';
-										url: 'mailto:contact@mattone.dev';
+										url: 'mailto:mattone.m@gmail.com';
 										with: [
-											html text: (self translator translationFor: #contactMe) ] ] ] ] ]
+											html text: (self translator translationFor: #contactMe) ].
+									html paragraph 
+									    class: 'text-secondary'; 
+										with: 'mattone.m@gmail.com' ] ] ] ]
 { #category : 'accessing' }
 PageIndex class >> initialize [ 
 	<pharoJsSkip>
