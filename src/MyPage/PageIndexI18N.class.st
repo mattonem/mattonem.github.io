@@ -54,7 +54,7 @@ PageIndexI18N class >> frTranslations [
 		at: #helloMyNameIs put: 'Bonjour le monde. Je m''appelle';
 		at: #intro put: 'Programmer, naviguer, apprendre, réitérer';
 		at: #descriptionTitle put: '⚓ L''humain au cœur de l''ingénierie : naviguer entre code et grand large';
-		at: #pharasteroidsDesc put: 'Éliminez les astéroïdes dans cet hommage au classique d'arcade, conçu sur canvas HTML. Ce jeu dynamique sert de démonstration interactive de la puissance et de la flexibilité du framework Gamebox.';
+		at: #pharasteroidsDesc put: 'Éliminez les astéroïdes dans cet hommage au classique d''arcade, conçu sur canvas HTML. Ce jeu dynamique sert de démonstration interactive de la puissance et de la flexibilité du framework Gamebox.';
 		at: #description put: 'Je suis un ingénieur logiciel passionné et développeur freelance, convaincu que la technologie doit toujours être au service de l''humain derrière l''écran. Fort d''une solide expérience en développement Web Fullstack et d''une expertise spécialisée en tant qu''expert QA, je conçois des applications aussi fiables que performantes.
 Mon cœur technique bat pour Smalltalk — j''apprécie l''élégance de la conception orientée objet pure et j''insuffle cette même exigence d''une architecture propre et réfléchie dans chaque projet. Quand je ne suis pas devant mon écran, vous me trouverez probablement sur l''eau, en tant que navigateur passionné, ou en train de découvrir de nouveaux horizons à travers le monde. Je transpose la curiosité et l''adaptabilité issues de mes voyages dans mon code, en privilégiant toujours le lien humain et la qualité avant tout.';
 		at: #kataHeader put: 'Kata de code';
