@@ -346,6 +346,9 @@ PageIndex class >> renderPharasteroidsOn: html [
 			html image
 				class: 'card-img';
 				url: '/assets/spaceship_in_space.svg'.
+			html div
+				class: 'card-body';
+				with: [ html paragraph with: (self translator translationFor: #pharasteroidsDesc) ].
 			html anchor
 				class: 'stretched-link';
 				url: '/GBAsteroid' ]

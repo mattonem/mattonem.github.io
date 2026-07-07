@@ -22,6 +22,7 @@ PageIndexI18N class >> enTranslations [
 		at: #description put: 'I am a passionate Software Engineer and freelance developer who believes that technology should always serve the person behind the screen. With extensive experience in Web Fullstack development and a specialized background as a QA Expert, I build applications that are as reliable as they are functional.
 My technical heart lies in Smalltalk—I value the elegance of pure object-oriented design and bring that same appreciation for clean, thoughtful architecture to every project. When I''m not at my desk, you''ll likely find me navigating the waters as a dedicated sailor or exploring new corners of the world. I bring the same curiosity and adaptability from my travels into my code, always prioritizing human connection and quality above all else.';
 		at: #kataHeader put: 'Code Kata';
+		at: #pharasteroidsDesc put: 'Destroy asteroids in this tribute to the arcade classic, built on HTML canvas. This dynamic game serves as an interactive demonstration of the power and flexibility of the Gamebox framework.';
 		at: #browserDetails put: 'Browser details';
 		at: #geohashViewerAuto put: 'Geohash Automatic Cover';
 		at: #geohashViewer put: 'Geohash Viewer';
@@ -53,7 +54,7 @@ PageIndexI18N class >> frTranslations [
 		at: #helloMyNameIs put: 'Bonjour le monde. Je m''appelle';
 		at: #intro put: 'Programmer, naviguer, apprendre, réitérer';
 		at: #descriptionTitle put: '⚓ L''humain au cœur de l''ingénierie : naviguer entre code et grand large';
-
+		at: #pharasteroidsDesc put: 'Éliminez les astéroïdes dans cet hommage au classique d'arcade, conçu sur canvas HTML. Ce jeu dynamique sert de démonstration interactive de la puissance et de la flexibilité du framework Gamebox.';
 		at: #description put: 'Je suis un ingénieur logiciel passionné et développeur freelance, convaincu que la technologie doit toujours être au service de l''humain derrière l''écran. Fort d''une solide expérience en développement Web Fullstack et d''une expertise spécialisée en tant qu''expert QA, je conçois des applications aussi fiables que performantes.
 Mon cœur technique bat pour Smalltalk — j''apprécie l''élégance de la conception orientée objet pure et j''insuffle cette même exigence d''une architecture propre et réfléchie dans chaque projet. Quand je ne suis pas devant mon écran, vous me trouverez probablement sur l''eau, en tant que navigateur passionné, ou en train de découvrir de nouveaux horizons à travers le monde. Je transpose la curiosité et l''adaptabilité issues de mes voyages dans mon code, en privilégiant toujours le lien humain et la qualité avant tout.';
 		at: #kataHeader put: 'Kata de code';
