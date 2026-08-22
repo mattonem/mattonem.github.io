@@ -201,7 +201,7 @@ PageIndex class >> renderBrowserDetailsOn: html [
 ]
 
 { #category : 'cards' }
-PageIndex class >> renderCombinaitionsFinderOn: html [
+PageIndex class >> renderCombinationsFinderOn: html [
 
     <pharoJsSkip>
     <renderProjectOrder: 4>
@@ -222,7 +222,7 @@ PageIndex class >> renderCombinaitionsFinderOn: html [
                 with: [ html paragraph with: (self translator translationFor: #combinationsFinderDescription) ].
             html anchor
                 class: 'stretched-link';
-                url: '/CombinaitionsFinder' ]
+                url: '/CombinationsFinder' ]
         on: html
 ]
 
