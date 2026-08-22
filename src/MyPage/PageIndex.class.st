@@ -215,8 +215,8 @@ PageIndex class >> renderCombinationsFinderOn: html [
                         with: (self translator translationFor: #combinationsFinder) ].
             html image
                 class: 'card-img';
-                url: '/assets/combinaitions_finder.svg';
-                altText: 'Combinaitions finder webapp'.
+                url: '/assets/combinations_finder.svg';
+                altText: 'Combinations finder webapp'.
             html div
                 class: 'card-body';
                 with: [ html paragraph with: (self translator translationFor: #combinationsFinderDescription) ].
