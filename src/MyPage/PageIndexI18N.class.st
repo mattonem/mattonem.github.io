@@ -35,8 +35,8 @@ My technical heart lies in Smalltalk—I value the elegance of pure object-orien
 		at: #cookingBook put: 'Cooking Book';
 		at: #cookingBookDesc put: 'A collection of recipes and cooking notes';
 		at: #loanCalculator put: 'Loan Calculator';
-		at: #combinationsFinder put: 'Combinaitions Finder';
-		at: #combinationsFinderDescription put: 'A small project based on a customer need to combine invoices together so that it ultimately adds up to certain total.';
+		at: #combinationsFinder put: 'Combinations Finder';
+		at: #combinationsFinderDescription put: 'A practical tool that finds combinations of invoices adding up to a target total, making reconciliation faster and less tedious.';
 		at: #chatRTCDescription put: 'A real-time peer-to-peer chat application powered by WebRTC technology. Connect directly with others without intermediaries for fast, secure conversations.';
 		at: #letsConnect put: 'Let''s Connect – Contact Me Today!';
 		at: #contactMe put: 'Contact Me'
@@ -73,7 +73,7 @@ Mon cœur technique bat pour Smalltalk — j''apprécie l''élégance de la conc
 		at: #loanCalculator put: 'Calculateur de prêt';
 		at: #loanCalculatorDescription put: 'Un calculateur de prêt complet pour comprendre vos coûts d''emprunt. Calculez les versements mensuels et les intérêts totaux.';
 		at: #combinationsFinder put: 'Combinaitions Finder';
-		at: #combinationsFinderDescription put: 'A small project based on a customer need to combine invoices together so that it ultimately adds up to certain total.';
+		at: #combinationsFinderDescription put: 'Un outil pratique qui trouve les combinaisons de factures correspondant à un montant cible, pour faciliter et accélérer le rapprochement.';
 		at: #chatRTCDescription put: 'Une application de chat pair-à-pair en temps réel alimentée par la technologie WebRTC. Connectez-vous directement avec d''autres sans intermédiaire pour des conversations rapides et sécurisées.';
 		at: #letsConnect put: 'Connectons-nous – Contactez-moi Aujourd''hui!';
 		at: #contactMe put: 'Me Contacter'
