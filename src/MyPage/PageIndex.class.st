@@ -156,7 +156,9 @@ PageIndex class >> generateHtmlUsing: html [
 											html text: (self translator translationFor: #contactMe) ].
 									html paragraph 
 									    class: 'text-secondary'; 
-										with: 'mattone.m@gmail.com' ] ] ] ]
+										with: 'mattone.m@gmail.com' ] ] ]
+]
+
 { #category : 'accessing' }
 PageIndex class >> initialize [ 
 	<pharoJsSkip>
@@ -195,6 +197,59 @@ PageIndex class >> renderBrowserDetailsOn: html [
 			html anchor
 				class: 'stretched-link';
 				url: '/BrowserDetails' ]
+		on: html
+]
+
+{ #category : 'cards' }
+PageIndex class >> renderCombinaitionsFinderOn: html [
+
+    <pharoJsSkip>
+    <renderProjectOrder: 4>
+    self
+        cardWith: [
+            html div
+                class: 'card-header';
+                with: [
+                    html heading
+                        level: 3;
+                        with: (self translator translationFor: #combinationsFinder) ].
+            html image
+                class: 'card-img';
+                url: '/assets/combinaitions_finder.svg';
+                altText: 'Combinaitions finder webapp'.
+            html div
+                class: 'card-body';
+                with: [ html paragraph with: (self translator translationFor: #combinationsFinderDescription) ].
+            html anchor
+                class: 'stretched-link';
+                url: '/CombinaitionsFinder' ]
+        on: html
+]
+
+{ #category : 'cards' }
+PageIndex class >> renderCookingBookOn: html [
+
+	<pharoJsSkip>
+	<renderProjectOrder: 3>
+	self
+		cardWith: [
+			html div
+				class: 'card-header';
+				with: [
+					html heading
+						level: 3;
+						with: (self translator translationFor: #cookingBook) ].
+			html image
+				class: 'card-img';
+				url: '/archive-md/assets/images/favicon.svg';
+				altText: 'Cooking book and recipes'.
+			html div
+				class: 'card-body';
+				with: [ html paragraph with: (self translator translationFor: #cookingBookDesc) ].
+
+			html anchor
+				class: 'stretched-link';
+				url: '/archive-md' ]
 		on: html
 ]
 
@@ -331,6 +386,60 @@ PageIndex class >> renderKataOn: html [
 ]
 
 { #category : 'cards' }
+PageIndex class >> renderLoanCalculatorOn: html [
+
+    <pharoJsSkip>
+    <renderProjectOrder: 4>
+    self
+        cardWith: [
+            html div
+                class: 'card-header';
+                with: [
+                    html heading
+                        level: 3;
+                        with: (self translator translationFor: #loanCalculator) ].
+            html image
+                class: 'card-img';
+                url: '/assets/loan_calculator.svg';
+                altText: 'Loan calculator web app'.
+            html div
+                class: 'card-body';
+                with: [ html paragraph with: (self translator translationFor: #loanCalculatorDescription) ].
+            html anchor
+                class: 'stretched-link';
+                url: '/loan-calculator' ]
+        on: html
+]
+
+{ #category : 'cards' }
+PageIndex class >> renderLoanChatRTC: html [
+
+    <pharoJsSkip>
+    <renderProjectOrder: 5>
+    self
+        cardWith: [
+            html div
+                class: 'card-header';
+                with: [
+                    html heading
+                        level: 3;
+                        with: (self translator translationFor: #chatRTC)  ].
+            
+             html image
+                class: 'card-img';
+				url: '/assets/chatrtc.svg';
+				altText: 'ChatRTC webapp'.
+
+			html div
+				class: 'card-body';
+				with: [ html paragraph with: (self translator translationFor: #chatRTCDescription) ].
+			html anchor
+                class: 'stretched-link';
+                url: '/ChatRTC' ]
+        on: html
+]
+
+{ #category : 'cards' }
 PageIndex class >> renderPharasteroidsOn: html [
 
 	<pharoJsSkip>
@@ -352,33 +461,6 @@ PageIndex class >> renderPharasteroidsOn: html [
 			html anchor
 				class: 'stretched-link';
 				url: '/GBAsteroid' ]
-		on: html
-]
-
-{ #category : 'cards' }
-PageIndex class >> renderCookingBookOn: html [
-
-	<pharoJsSkip>
-	<renderProjectOrder: 3>
-	self
-		cardWith: [
-			html div
-				class: 'card-header';
-				with: [
-					html heading
-						level: 3;
-						with: (self translator translationFor: #cookingBook) ].
-			html image
-				class: 'card-img';
-				url: '/archive-md/assets/images/favicon.svg';
-				altText: 'Cooking book and recipes'.
-			html div
-				class: 'card-body';
-				with: [ html paragraph with: (self translator translationFor: #cookingBookDesc) ].
-
-			html anchor
-				class: 'stretched-link';
-				url: '/archive-md' ]
 		on: html
 ]
 
@@ -510,58 +592,4 @@ PageIndex >> start [
 			ifTrue: [ self resetMasonry ]
 			ifFalse: [
 			anImage addEventListener: 'load' block: [ self resetMasonry ] ] ]
-]
-
-{ #category : 'cards' }
-PageIndex class >> renderLoanCalculatorOn: html [
-
-    <pharoJsSkip>
-    <renderProjectOrder: 4>
-    self
-        cardWith: [
-            html div
-                class: 'card-header';
-                with: [
-                    html heading
-                        level: 3;
-                        with: (self translator translationFor: #loanCalculator) ].
-            html image
-                class: 'card-img';
-                url: '/assets/loan_calculator.svg';
-                altText: 'Loan calculator web app'.
-            html div
-                class: 'card-body';
-                with: [ html paragraph with: (self translator translationFor: #loanCalculatorDescription) ].
-            html anchor
-                class: 'stretched-link';
-                url: '/loan-calculator' ]
-        on: html
-]
-
-{ #category : 'cards' }
-PageIndex class >> renderLoanChatRTC: html [
-
-    <pharoJsSkip>
-    <renderProjectOrder: 5>
-    self
-        cardWith: [
-            html div
-                class: 'card-header';
-                with: [
-                    html heading
-                        level: 3;
-                        with: (self translator translationFor: #chatRTC)  ].
-            
-             html image
-                class: 'card-img';
-				url: '/assets/chatrtc.svg';
-				altText: 'ChatRTC webapp'.
-
-			html div
-				class: 'card-body';
-				with: [ html paragraph with: (self translator translationFor: #chatRTCDescription) ].
-			html anchor
-                class: 'stretched-link';
-                url: '/ChatRTC' ]
-        on: html
 ]
