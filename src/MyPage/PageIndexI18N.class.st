@@ -35,6 +35,7 @@ My technical heart lies in Smalltalk—I value the elegance of pure object-orien
 		at: #cookingBook put: 'Cooking Book';
 		at: #cookingBookDesc put: 'A collection of recipes and cooking notes';
 		at: #loanCalculator put: 'Loan Calculator';
+		at: #loanCalculatorDescription put: 'A complete loan calculator to understand your borrowing costs. Calculate monthly payments and total interest.';
 		at: #combinationsFinder put: 'Combinations Finder';
 		at: #combinationsFinderDescription put: 'A practical tool that finds combinations of invoices adding up to a target total, making reconciliation faster and less tedious.';
 		at: #chatRTCDescription put: 'A real-time peer-to-peer chat application powered by WebRTC technology. Connect directly with others without intermediaries for fast, secure conversations.';
